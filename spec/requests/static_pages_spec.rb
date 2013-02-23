@@ -58,5 +58,4 @@ describe "Static pages" do
 			page.should have_selector('title', :text => "#{base_title} | Contact")
 		end
 	end
-
 end
