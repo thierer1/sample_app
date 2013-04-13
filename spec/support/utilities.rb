@@ -1,5 +1,13 @@
 include ApplicationHelper
 
+def sign_in(user) 
+  visit signin_path 
+  fill_in "Email", with: user.email 
+  fill_in "Password", with: user.password 
+  click_button "Sign in" 
+  cookies[:remember_token] = user.remember_token
+end
+
 # removed in 5.6.3
 # def full_title(page_title) 
 #  base_title = "Ruby on Rails Tutorial Sample App"
