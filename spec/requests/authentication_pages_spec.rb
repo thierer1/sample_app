@@ -4,6 +4,14 @@ describe "Authentication" do
 
   subject { page }
 
+  describe "not signed in" do 
+    let(:user) { FactoryGirl.create(:user) }
+    before { visit root_path }
+
+    it { should_not have_link('Profile', href: user_path(user)) }
+    it { should_not have_link('Settigns', href: edit_user_path(user)) }
+  end
+
   describe "signin page" do 
     before { visit signin_path }
 
